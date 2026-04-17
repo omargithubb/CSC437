@@ -1,0 +1,17 @@
+:root {
+  /* Primary colors */
+  --color-primary: #501ca4;
+  --color-secondary: #cd0000;
+
+  /* Text colors */
+  --color-text-main: #222222;
+  --color-text-muted: #666666;
+
+  /* Backgrounds */
+  --color-background: #5d5050;
+  --color-surface: #f5f5f5;
+  --color-gray: #b4adad42;
+
+  /* Borders */
+  --color-border: #b4b4b4;
+}

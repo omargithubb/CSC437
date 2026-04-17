@@ -1,0 +1,27 @@
+/* background color*/
+body { background-color: #f0f0f0; }
+
+
+header{
+    color: var(--color-surface);
+    background-color:  var(--color-background);
+}
+
+h2{
+    color: var(--color-primary);
+    background-color: var(--color-gray);
+    border: 2px solid black;
+    width: fit-content;
+    padding: 10px;
+    display: inline-block;
+
+}
+
+.benday {
+  background-color: beige;
+  color: darkgreen;
+  text-align: center;
+  font-size: 24px;
+  width: min-content;
+  margin: 0 auto;
+}
