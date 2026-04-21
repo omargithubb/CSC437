@@ -25,3 +25,11 @@ h2{
   width: min-content;
   margin: 0 auto;
 }
+
+svg.icon {
+  display: inline;
+  height: 2em;
+  width: 2em;
+  vertical-align: top;
+  fill: currentColor;
+}
