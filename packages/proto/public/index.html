@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="/styles/page.css"/>
+    <link rel="stylesheet" href="/styles/reset.css"/>
     <link rel="stylesheet" href="/styles/tokens.css"/>
+    <link rel="stylesheet" href="/styles/page.css"/>
     <!-- 
     Sans body font
     -->
@@ -22,47 +23,48 @@
 </head>
 
 <body>
-<center>
-<header>
-    Activity Tracker
-</header>
+    <!-- 
+        HEADER
+    -->
+  <header class="app-header">
+    <div class="logo">Activity Tracker</div>
+    <div class="welcome">Welcome to my activity tracker!</div>
+    <div class="user">Omar</div>
+  </header>
 
-<header>
-    Welcome to my activity tracker!
-</header>
-</center>
+  <main class="page">
+    <section class="nav-grid">
 
+      <a class="card" href="track.html">
+        <span>Track</span>
+        <svg class="icon">
+          <use href="/icons/running.svg#icon-run" />
+        </svg>
+      </a>
 
+      <a class="card" href="omar.html">
+        <span>Omar</span>
+        <svg class="icon">
+          <use href="/icons/running.svg#icon-person" />
+        </svg>
+      </a>
 
+      <a class="card" href="route.html">
+        <span>Routes</span>
+        <svg class="icon">
+          <use href="/icons/running.svg#icon-road" />
+        </svg>
+      </a>
 
-<h2>
-    <a href="track.html">Track</a>
-    <svg class="icon">
-        <use href="/icons/running.svg#icon-run" />
-    </svg>
-</h2>
-<br>
-<h2>
-    <a href="omar.html">Omar</a>
-    <svg class="icon">
-        <use href="/icons/running.svg#icon-person" />
-    </svg>
-</h2>
+      <a class="card" href="leaderboard.html">
+        <span>Leaderboard</span>
+        <svg class="icon">
+          <use href="/icons/running.svg#icon-leaderboard" />
+        </svg>
+      </a>
 
-<br>
-<h2>
-    <a href="route.html">Routes</a>
-    <svg class="icon">
-        <use href="/icons/running.svg#icon-road" />
-    </svg>
-</h2>
-<br>
-<h2>
-    <a href="leaderboard.html">Leaderboard</a>
-    <svg class="icon">
-        <use href="/icons/running.svg#icon-leaderboard" />
-    </svg>
-</h2>
+    </section>
+  </main>
 
 </body>
 

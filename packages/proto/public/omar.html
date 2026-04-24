@@ -1,14 +1,58 @@
+<!doctype html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="/styles/page.css"/>
-    <link rel="stylesheet" href="/styles/tokens.css"/>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="/styles/reset.css"/>
+  <link rel="stylesheet" href="/styles/tokens.css"/>
+  <link rel="stylesheet" href="/styles/page.css"/>
 
 </head>
 
-<h3><a href="index.html">Back to Home Page</a></h3>
+<body>
+    <!-- 
+        HEADER
+    -->
+  <header class="app-header">
+    <div class="logo">Activity Tracker</div>
+    <div class="welcome">Profile</div>
+    <div class="user">Omar</div>
+  </header>
 
+  <main class="page">
 
-<h1>User: Omar Gonzalez</h1>
-<h2>Age: 22</h2>
-<h2>Height: 6'0"</h2>
-<h2>Age: 22</h2>
-<h2>Fastest Mile: 9 min 52 sec</h2>
+    <a class="back-link" href="index.html">
+        <svg class="icon">
+            <use href="/icons/running.svg#icon-back" />
+        </svg>
+        Back to Home
+    </a>
+
+    <section class="profile">
+
+      <div class="card profile-card">
+        <h2>Omar Gonzalez</h2>
+      </div>
+
+      <div class="card profile-card">
+        <span>Age</span>
+        <span>22</span>
+      </div>
+
+      <div class="card profile-card">
+        <span>Height</span>
+        <span>6'0"</span>
+      </div>
+
+      <div class="card profile-card">
+        <span>Fastest Mile</span>
+        <span>9 min 52 sec</span>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

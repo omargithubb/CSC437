@@ -1,13 +1,13 @@
-/* background color*/
-body { background-color: #f0f0f0; }
+body {
+    background-color: #f0f0f0; 
+}
 
-
-header{
+header {
     color: var(--color-surface);
     background-color:  var(--color-background);
 }
 
-h2{
+h2 {
     color: var(--color-primary);
     background-color: var(--color-gray);
     border: 2px solid black;
@@ -17,14 +17,53 @@ h2{
 
 }
 
-.benday {
-  background-color: beige;
-  color: darkgreen;
-  text-align: center;
-  font-size: 24px;
-  width: min-content;
-  margin: 0 auto;
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-background);
+  color: var(--color-surface);
+
+  padding: var(--space-md);
 }
+
+.page {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+}
+
+.nav-grid {
+  grid-column: span 12;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: var(--space-md);
+
+  background-color: var(--color-gray);
+  border: 2px solid black;
+
+  text-decoration: none;
+  color: var(--color-primary);
+}
+.list {
+  grid-column: span 12;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
 
 svg.icon {
   display: inline;
@@ -32,4 +71,101 @@ svg.icon {
   width: 2em;
   vertical-align: top;
   fill: currentColor;
+}
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.leaderboard-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/*
+    Routes
+*/
+
+.back-link {
+  margin-bottom: var(--space-md);
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.route-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.route-name {
+  font-weight: 600;
+}
+
+.route-distance {
+  color: var(--color-text-main);
+}
+/*
+    Profile
+*/
+.profile {
+  grid-column: span 12;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-card h2 {
+  width: 100%;
+  text-align: center;
+}
+
+/*
+    Track
+*/
+.track-container {
+  grid-column: span 12;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 60vh;
+}
+
+.track-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.track-btn {
+  padding: var(--space-md) var(--space-lg);
+
+  background-color: var(--color-primary);
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
 }

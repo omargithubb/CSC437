@@ -1,10 +1,44 @@
+<!doctype html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="/styles/page.css"/>
-    <link rel="stylesheet" href="/styles/tokens.css"/>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="/styles/reset.css"/>
+  <link rel="stylesheet" href="/styles/tokens.css"/>
+  <link rel="stylesheet" href="/styles/page.css"/>
 
 </head>
 
-<h3><a href="index.html">Back to Home Page</a></h3>
+<body>
+    <!-- 
+        HEADER
+    -->
+  <header class="app-header">
+    <div class="logo">Activity Tracker</div>
+    <div class="welcome">Track</div>
+    <div class="user">Omar</div>
+  </header>
 
+  <main class="page">
 
-<button type="button">Start tracking!</button>
+    <a class="back-link" href="index.html">
+        <svg class="icon">
+            <use href="/icons/running.svg#icon-back" />
+        </svg>
+        Back to Home
+    </a>
+
+    <section class="track-container">
+
+      <div class="card track-card">
+        <h2>Start a Run</h2>
+        <button class="track-btn">Start Tracking</button>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

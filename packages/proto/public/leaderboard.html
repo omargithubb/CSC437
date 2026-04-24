@@ -1,11 +1,60 @@
+<!doctype html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="/styles/page.css"/>
-    <link rel="stylesheet" href="/styles/tokens.css"/>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="/styles/reset.css"/>
+  <link rel="stylesheet" href="/styles/tokens.css"/>
+  <link rel="stylesheet" href="/styles/page.css"/>
 
 </head>
 
-<h3><a href="index.html">Back to Home Page</a></h3>
-<h2>1. Omar Gonzalez</h2>
-<h2>2. John Pork</h2>
-<h2>3. Michael James</h2>
-<h2>4. William Sam</h2>
+<body>
+    <!-- 
+        HEADER
+    -->
+  <header class="app-header">
+    <div class="logo">Activity Tracker</div>
+    <div class="welcome">Leaderboard</div>
+    <div class="user">Omar</div>
+  </header>
+
+  <main class="page">
+
+    <a class="back-link" href="index.html">
+        <svg class="icon">
+          <use href="/icons/running.svg#icon-back" />
+        </svg>
+        Back to Home
+    </a>
+    <!-- 
+        need to change route name and maybe make a leaderboard one?
+    -->
+    <section class="list">
+      <div class="card leaderboard-card">
+        <div class="route-name">1. Omar Gonzalez</div>
+        <div class="route-distance">10.2 miles</div>
+
+      </div>
+      <div class="card leaderboard-card">
+        <div class="route-name">2. John Pork</div>
+        <div class="route-distance">9.8 miles</div>
+
+      </div>
+      <div class="card leaderboard-card">
+        <div class="route-name">3. Michael James</div>
+        <div class="route-distance">6.1 miles</div>
+
+      </div>
+      <div class="card leaderboard-card">
+        <div class="route-name">4. William Sam</div>
+        <div class="route-distance">2.8 miles</div>
+
+      </div>
+      
+    </section>
+
+  </main>
+</body>
+</html>
