@@ -1,10 +1,23 @@
 body {
-    background-color: #f0f0f0; 
+  background-color: var(--color-background);
+  /* color: var(--color-text-main); */
 }
 
 header {
     color: var(--color-surface);
     background-color:  var(--color-background);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 h2 {

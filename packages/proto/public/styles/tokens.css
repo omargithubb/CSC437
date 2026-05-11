@@ -2,7 +2,7 @@
   --color-primary: #501ca4;
   --color-secondary: #cd0000;
   --color-text-main: #222222;
-  --color-background: #5d5050;
+  --color-background: #6d6a6a;
   --color-surface: #f5f5f5;
   --color-gray: #b4adad42;
   --color-border: #b4b4b4;
@@ -10,4 +10,13 @@
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
+}
+
+body.dark-mode {
+  --color-background: #121212;
+  --color-surface: #f5f5f5;
+  --color-gray: #2a2a2a;
+  --color-text-main: #f0f0f0;
+  --color-primary: #9d6cff;
+  --color-border: #666666;
 }

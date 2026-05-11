@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "name": "Cal Poly PCV",
+      "distance": "3.3 miles"
+    },
+    {
+      "name": "Foothill",
+      "distance": "4 miles"
+    },
+    {
+      "name": "Train Track",
+      "distance": "2 miles"
+    }
+  ]
+}

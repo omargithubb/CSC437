@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
 
+<script type="importmap">
+{
+  "imports": {
+    "@unbndl/html": "https://unpkg.com/@unbndl/html"
+  }
+}
+</script>
+
 <head>
   <meta charset="utf-8" />
 
@@ -15,10 +23,24 @@
         HEADER
     -->
   <header class="app-header">
-    <div class="logo">Activity Tracker</div>
-    <div class="welcome">Routes</div>
+  <div class="logo">Activity Tracker</div>
+
+  <div class="welcome">Routes</div>
+
+  <div class="header-controls">
+
+    <label class="dark-toggle">
+      <input
+        type="checkbox"
+        autocomplete="off"
+      />
+      Dark Mode
+    </label>
+
     <div class="user">Omar</div>
-  </header>
+
+  </div>
+</header>
 
   <main class="page">
 
@@ -29,26 +51,59 @@
         Back to Home
     </a>
 
-    <section class="list">
+    <!--
+      CUSTOM VIEW ELEMENT
+    -->
+    <!-- <section class="list">
 
-      <div class="card route-card">
-        <div class="route-name">Cal Poly PCV</div>
-        <div class="route-distance">3.3 miles</div>
-      </div>
+      <run-route distance="3.3 miles">
+        Cal Poly PCV
+      </run-route>
 
-      <div class="card route-card">
-        <div class="route-name">Foothill</div>
-        <div class="route-distance">4 miles</div>
-      </div>
+      <run-route distance="4 miles">
+        Foothill
+      </run-route>
 
-      <div class="card route-card">
-        <div class="route-name">Train Track</div>
-        <div class="route-distance">2 miles</div>
-      </div>
+      <run-route distance="2 miles">
+        Train Track
+      </run-route>
 
-    </section>
+    </section> -->
+    <route-list src="/data/routes.json">
+    </route-list>
 
   </main>
+
+    <script type="module" src="/scripts/darkmode.js"></script>
+
+    <script type="importmap">
+{
+  "imports": {
+    "@unbndl/html": "https://unpkg.com/@unbndl/html"
+  }
+}
+</script>
+
+<script type="module">
+
+  import { define } from "@unbndl/html";
+
+  import { RunRouteElement }
+    from "/src/run-route.js";
+
+  import { RouteListElement }
+    from "/src/route-list.js";
+
+  define({
+    "run-route": RunRouteElement
+  });
+
+  define({
+    "route-list": RouteListElement
+  });
+
+</script>
+
 
 </body>
 </html>

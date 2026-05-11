@@ -27,10 +27,24 @@
         HEADER
     -->
   <header class="app-header">
-    <div class="logo">Activity Tracker</div>
-    <div class="welcome">Welcome to my activity tracker!</div>
+  <div class="logo">Activity Tracker</div>
+
+  <div class="welcome">Welcome to my activity tracker!</div>
+
+  <div class="header-controls">
+
+    <label class="dark-toggle">
+      <input
+        type="checkbox"
+        autocomplete="off"
+      />
+      Dark Mode
+    </label>
+
     <div class="user">Omar</div>
-  </header>
+
+  </div>
+</header>
 
   <main class="page">
     <section class="nav-grid">
@@ -65,6 +79,8 @@
 
     </section>
   </main>
+
+  <script type="module" src="/scripts/darkmode.js"></script>
 
 </body>
 
