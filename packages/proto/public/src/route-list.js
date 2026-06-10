@@ -1,6 +1,33 @@
-import { html, css, shadow } from "@unbndl/html";
+import {
+  html,
+  css,
+  shadow
+} from "@unbndl/html";
 
-export class RouteListElement extends HTMLElement {
+import {
+  fromAuth
+} from "@unbndl/auth";
+
+import {
+  createViewModel
+} from "@unbndl/view";
+
+export class RouteListElement
+  extends HTMLElement {
+
+  viewModel = createViewModel({
+
+    authenticated: false,
+
+    token: undefined,
+
+    routes: []
+
+  }).with(
+    fromAuth(this),
+    "authenticated",
+    "token"
+  );
 
   constructor() {
 
@@ -9,60 +36,85 @@ export class RouteListElement extends HTMLElement {
     shadow(this)
       .styles(RouteListElement.styles);
 
+    this.viewModel.createEffect(($) => {
+
+      const src =
+        this.getAttribute("src");
+
+      if ($.authenticated && src) {
+
+        this.hydrate(src)
+
+          .then((data) => {
+
+            const view =
+              RouteListElement.render(data);
+
+            shadow(this).replace(view);
+
+          });
+
+      }
+
+    });
+
   }
 
-  static observedAttributes = ["src"];
+  get authorization() {
 
-  attributeChangedCallback(name, _, newValue) {
+    const $ =
+      this.viewModel.toObject();
 
-    if (name === "src") {
+    if ($.authenticated) {
 
-      this.hydrate(newValue)
-        .then((data) => {
+      return {
 
-          const view =
-            RouteListElement.render(data);
+        Authorization:
+          `Bearer ${$.token}`
 
-          shadow(this).replace(view);
-
-        });
+      };
 
     }
 
-  }
+    return {};
 
+  }
 
   hydrate(src) {
 
-    return fetch(src)
+    return fetch(src, {
 
-      .then((response) => {
+      headers:
+        this.authorization
 
-        if (response.status !== 200) {
+    })
 
-          throw `HTTP Error ${response.status}`;
+    .then((response) => {
 
-        }
+      if (response.status !== 200) {
 
-        return response.json();
+        throw `HTTP Error ${response.status}`;
 
-      })
+      }
 
-      .catch((error) => {
+      return response.json();
 
-        console.log(
-          `Could not fetch ${src}:`,
-          error
-        );
+    })
 
-      });
+    .catch((error) => {
+
+      console.log(
+        `Could not fetch ${src}:`,
+        error
+      );
+
+    });
 
   }
 
-
   static render(data) {
 
-    const routes = data?.routes || [];
+    const routes = data || [];
 
     return html`
 
@@ -78,32 +130,31 @@ export class RouteListElement extends HTMLElement {
 
   static styles = css`
 
-  :host {
+    :host {
 
-    grid-column: span 12;
+      grid-column: span 12;
 
-    width: 100%;
+      width: 100%;
 
-    display: block;
+      display: block;
 
-  }
+    }
 
-  .list {
+    .list {
 
-    display: flex;
+      display: flex;
 
-    flex-direction: column;
+      flex-direction: column;
 
-    gap: var(--space-md);
+      gap: var(--space-md);
 
-    width: 100%;
+      width: 100%;
 
-  }
+    }
 
-`;
+  `;
 
 }
-
 
 function renderRoute(route) {
 

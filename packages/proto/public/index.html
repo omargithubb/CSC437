@@ -1,88 +1,78 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="/styles/reset.css"/>
-    <link rel="stylesheet" href="/styles/tokens.css"/>
-    <link rel="stylesheet" href="/styles/page.css"/>
-    <!-- 
-    Sans body font
-    -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
-    <!-- 
-    Sans-serif display font
-    -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/styles/reset.css"/>
+  <link rel="stylesheet" href="/styles/tokens.css"/>
+  <link rel="stylesheet" href="/styles/page.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+  <script type="importmap">
+    {
+      "imports": {
+        "@unbndl/auth": "https://unpkg.com/@unbndl/auth",
+        "@unbndl/html": "https://unpkg.com/@unbndl/html",
+        "@unbndl/view": "https://unpkg.com/@unbndl/view"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { define } from "@unbndl/html";
+    import { Auth } from "@unbndl/auth";
+    import { HeaderElement } from "/js/header.js";
+
+    define({
+      "auth-provider": Auth.Provider,
+      "app-header": HeaderElement
+    });
+  </script>
 </head>
 
 <body>
-    <!-- 
-        HEADER
-    -->
-  <header class="app-header">
-  <div class="logo">Activity Tracker</div>
+  <auth-provider>
 
-  <div class="welcome">Welcome to my activity tracker!</div>
+    <app-header></app-header>
 
-  <div class="header-controls">
+    <main class="page">
+      <section class="nav-grid">
 
-    <label class="dark-toggle">
-      <input
-        type="checkbox"
-        autocomplete="off"
-      />
-      Dark Mode
-    </label>
+        <a class="card" href="track.html">
+          <span>Track</span>
+          <svg class="icon">
+            <use href="/icons/running.svg#icon-run" />
+          </svg>
+        </a>
 
-    <div class="user">Omar</div>
+        <a class="card" href="omar.html">
+          <span>Omar</span>
+          <svg class="icon">
+            <use href="/icons/running.svg#icon-person" />
+          </svg>
+        </a>
 
-  </div>
-</header>
+        <a class="card" href="route.html">
+          <span>Routes</span>
+          <svg class="icon">
+            <use href="/icons/running.svg#icon-road" />
+          </svg>
+        </a>
 
-  <main class="page">
-    <section class="nav-grid">
+        <a class="card" href="leaderboard.html">
+          <span>Leaderboard</span>
+          <svg class="icon">
+            <use href="/icons/running.svg#icon-leaderboard" />
+          </svg>
+        </a>
 
-      <a class="card" href="track.html">
-        <span>Track</span>
-        <svg class="icon">
-          <use href="/icons/running.svg#icon-run" />
-        </svg>
-      </a>
+      </section>
+    </main>
 
-      <a class="card" href="omar.html">
-        <span>Omar</span>
-        <svg class="icon">
-          <use href="/icons/running.svg#icon-person" />
-        </svg>
-      </a>
-
-      <a class="card" href="route.html">
-        <span>Routes</span>
-        <svg class="icon">
-          <use href="/icons/running.svg#icon-road" />
-        </svg>
-      </a>
-
-      <a class="card" href="leaderboard.html">
-        <span>Leaderboard</span>
-        <svg class="icon">
-          <use href="/icons/running.svg#icon-leaderboard" />
-        </svg>
-      </a>
-
-    </section>
-  </main>
-
-  <script type="module" src="/scripts/darkmode.js"></script>
-
+    <script type="module" src="/scripts/darkmode.js"></script>
+  </auth-provider>
 </body>
-
 
 </html>

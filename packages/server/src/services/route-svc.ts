@@ -49,5 +49,65 @@ function get(id: string): Promise<Route | undefined> {
 
 }
 
+function create(
+  json: Route
+): Promise<Route> {
 
-export default { index, get };
+  const route =
+    new RouteModel(json);
+
+  return route.save();
+
+}
+
+function update(
+  id: string,
+  route: Route
+): Promise<Route | undefined> {
+
+  return RouteModel
+
+    .findByIdAndUpdate(
+      id,
+      route,
+      { new: true }
+    )
+
+    .then((updated) => {
+
+      if (!updated)
+
+        throw `${id} not updated`;
+
+      return updated as Route;
+
+    });
+
+}
+
+function remove(
+  id: string
+): Promise<void> {
+
+  return RouteModel
+
+    .findByIdAndDelete(id)
+
+    .then((deleted) => {
+
+      if (!deleted)
+
+        throw `${id} not deleted`;
+
+    });
+
+}
+
+
+export default {
+  index,
+  get,
+  create,
+  update,
+  remove
+};

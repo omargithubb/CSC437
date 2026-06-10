@@ -1,109 +1,58 @@
 <!doctype html>
 <html lang="en">
 
-<script type="importmap">
-{
-  "imports": {
-    "@unbndl/html": "https://unpkg.com/@unbndl/html"
-  }
-}
-</script>
-
 <head>
   <meta charset="utf-8" />
-
   <link rel="stylesheet" href="/styles/reset.css"/>
   <link rel="stylesheet" href="/styles/tokens.css"/>
   <link rel="stylesheet" href="/styles/page.css"/>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "@unbndl/auth": "https://unpkg.com/@unbndl/auth",
+        "@unbndl/html": "https://unpkg.com/@unbndl/html",
+        "@unbndl/view": "https://unpkg.com/@unbndl/view"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { define } from "@unbndl/html";
+    import { Auth } from "@unbndl/auth";
+    import { HeaderElement } from "/js/header.js";
+    import { RunRouteElement } from "/src/run-route.js";
+    import { RouteListElement } from "/src/route-list.js";
+
+    define({
+      "auth-provider": Auth.Provider,
+      "app-header": HeaderElement,
+      "run-route": RunRouteElement,
+      "route-list": RouteListElement
+    });
+  </script>
 </head>
 
 <body>
-    <!-- 
-        HEADER
-    -->
-  <header class="app-header">
-  <div class="logo">Activity Tracker</div>
+  <auth-provider>
 
-  <div class="welcome">Routes</div>
+    <app-header></app-header>
 
-  <div class="header-controls">
+    <main class="page">
 
-    <label class="dark-toggle">
-      <input
-        type="checkbox"
-        autocomplete="off"
-      />
-      Dark Mode
-    </label>
-
-    <div class="user">Omar</div>
-
-  </div>
-</header>
-
-  <main class="page">
-
-    <a class="back-link" href="index.html">
+      <a class="back-link" href="index.html">
         <svg class="icon">
-            <use href="/icons/running.svg#icon-back" />
+          <use href="/icons/running.svg#icon-back" />
         </svg>
         Back to Home
-    </a>
+      </a>
 
-    <!--
-      CUSTOM VIEW ELEMENT
-    -->
-    <!-- <section class="list">
+      <route-list src="/api/routes"></route-list>
 
-      <run-route distance="3.3 miles">
-        Cal Poly PCV
-      </run-route>
-
-      <run-route distance="4 miles">
-        Foothill
-      </run-route>
-
-      <run-route distance="2 miles">
-        Train Track
-      </run-route>
-
-    </section> -->
-    <route-list src="/data/routes.json">
-    </route-list>
-
-  </main>
+    </main>
 
     <script type="module" src="/scripts/darkmode.js"></script>
-
-    <script type="importmap">
-{
-  "imports": {
-    "@unbndl/html": "https://unpkg.com/@unbndl/html"
-  }
-}
-</script>
-
-<script type="module">
-
-  import { define } from "@unbndl/html";
-
-  import { RunRouteElement }
-    from "/src/run-route.js";
-
-  import { RouteListElement }
-    from "/src/route-list.js";
-
-  define({
-    "run-route": RunRouteElement
-  });
-
-  define({
-    "route-list": RouteListElement
-  });
-
-</script>
-
-
+  </auth-provider>
 </body>
+
 </html>

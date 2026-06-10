@@ -9,7 +9,7 @@
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "../app/messages.ts", "../app/model.ts", "../app/update.ts"],
   "exclude": ["node_modules"],
   "lib": ["esnext"]
 }
